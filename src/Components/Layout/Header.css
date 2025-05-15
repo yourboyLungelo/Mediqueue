@@ -1,0 +1,47 @@
+.app-header {
+  background-color: #2980b9;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  color: white;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.header-title {
+  flex-grow: 1;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #a9d6f5;
+  outline: none;
+}

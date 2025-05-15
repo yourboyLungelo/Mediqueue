@@ -79,6 +79,7 @@ const LoginRegister = () => {
             if (response.ok) {
                 localStorage.setItem('token', result.token);
                 localStorage.setItem('userName', result.user.name);
+                localStorage.setItem('userId', result.user.id);
                 navigate('/dashboard');
             } else {
                 setMessage({ text: result.error || 'Invalid credentials', isError: true });

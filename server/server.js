@@ -3,11 +3,15 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
+
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+
+
 
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/mediqueue', {
@@ -19,9 +23,11 @@ mongoose.connect('mongodb://localhost:27017/mediqueue', {
 
 // Import Routes
 const authRoutes = require('./routes/auth');
+const adminRoutes = require('./routes/admin');
 
 // Route Middlewares
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Basic route
 app.get('/', (req, res) => {

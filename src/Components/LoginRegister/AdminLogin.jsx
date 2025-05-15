@@ -17,7 +17,7 @@ const AdminLogin = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3001/admin-login', {
+            const response = await fetch('http://localhost:3001/api/auth/admin-login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,10 +26,17 @@ const AdminLogin = () => {
             });
 
             const result = await response.json();
-            console.log(result);
-            // Handle successful login (redirect, store token, etc.)
+            if (result.success) {
+                alert('Login successful');
+                localStorage.setItem('token', result.token);
+                localStorage.setItem('userName', id);
+                window.location.href = '/admin-dashboard';
+            } else {
+                alert('Login failed: ' + result.message);
+            }
         } catch (error) {
             console.error('Error:', error);
+            alert('An error occurred during login');
         }
     };
 
